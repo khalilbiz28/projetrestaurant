@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="pro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,600;1,100;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+  <title>Réservez votre table</title>
+  <link rel="stylesheet" type="text/css" href="C:\Users\barhami mohamed\Downloads\pro.css">
+
+  <style>
+    *{
+    margin: 0px;
+    padding: 0 px;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+    section{
+      margin-top: 100px;
+    }
+    body{
+      background-image: url(https://misterwils.fr/wp-content/uploads/2021/05/misterwils-blog-tables-de-restaurant-nouveautes-1.jpg);
+      background-size: 100%;
+      height: 500px;
+    }
+    .kh {
+      color:aliceblue;
+      font-style:italic;
+      
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo"s><span>R</span>es<span>t</span>uran<span>t</span></a>
+        <ul class="nav">
+            <li><a href="prj.html">Accueill</a></li>
+            <li><a href="prj.html">A propos </a></li>
+            <li><a href="prj.html">Menu</a></li>
+            <li><a href="prj.html">Nos Expert</a></li>
+            <li><a href="prj.html">Contactez-Nous</a></li>
+         <a href="C:\Users\barhami mohamed\Desktop\projet.html\reserver.html" class="btn">Reservation</a>
+        </ul>
+  </header>
+  <section>
+
+ 
+  <h1 class="kh">Réservation ~ De ~ Table</h1>
+  
+  <div id="div0">
+            <input type="text" id="in1" placeholder="Enter your name"><br>
+            <input type="email" id="in2" placeholder="Enter your email"><br>
+            <input type="date" id="in3" placeholder="Enter date"><br>
+            <input type="time" id="in4" placeholder="Enter time"><br>
+            <input type="number" id="in5" placeholder="Enter number of guests"><br>
+            <span id="s1" style="color: red;"></span><br>
+            <button onclick="add()">Add user</button>
+        </div>
+    <div id="div1">
+       <button onclick="show()">Show users in table</button><br><br>
+       <table border="2px" id="table1" >
+               <tr><th>Name</th><th>Email</th><th>Date</th><th>Time</th><th>Guests</th></tr>
+       </table>
+    </div>
+  </section>
+  <script>
+    var users = [{ name:'ali el', email:'refresh@gmail.fr', date:'12/08/2013', time:'12:50', guests:'10' },
+    {name:'khalil', email:'ali1@hotmail.com', date:'12/03/2023', time:'22:50', guests:'20' }]
+
+function add(){
+
+    var name1 = document.getElementById("in1").value;
+    var email1 = document.getElementById("in2").value;
+    var date1 = document.getElementById("in3").value;
+    var time1 = document.getElementById("in4").value;
+    var guests1 = document.getElementById("in5").value;
+
+        var res = {};
+
+        res.nom = name1;
+        res.email = email1;
+        res.date = date1;
+        res.time = time1;
+        res.guests = guests1;
+
+        users.push(res);
+        console.log(users);
+        alerte();
+
+    }
+
+    function show(){
+    
+        for(var i=0; i<users.length; i++){
+            // <tr><th>Nom Complet</th><th>Password</th></tr>
+            // <tr><td>Nom Complet value</td><td>Password value</td></tr>
+    
+            var td1 = document.createElement('td');
+            var td2 = document.createElement('td');
+            var td3 = document.createElement('td');
+            var td4 = document.createElement('td');
+            var td5 = document.createElement('td');
+            
+    
+            var tr = document.createElement('tr');
+    
+            var name1 = users[i].nom; 
+            var email1 = users[i].email;
+            var date1 = users[i].date; 
+            var time1 = users[i].time;
+            var guests1 = users[i].guests;
+
+           
+    
+            td1.append(name1);
+            td2.append(email1);
+            td3.append(date1);
+            td4.append(time1);
+            td5.append(guests1);
+            tr.append(td1);
+            tr.append(td2);
+            tr.append(td3);
+            tr.append(td4);
+            tr.append(td5);
+            
+    
+            var table = document.getElementById('table1');
+    
+            table.append(tr);
+        }
+     }
+     function alerte(){
+      var add = true; // Exemple d'une variable qui indique si la réservation a été effectuée
+
+if (add) {
+  alert("La réservation a été effectuée !");
+}
+     }
+  </script>
+</body>
+</html>
